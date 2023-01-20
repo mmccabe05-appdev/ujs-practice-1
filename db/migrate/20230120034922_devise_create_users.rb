@@ -2,6 +2,7 @@
 
 class DeviseCreateUsers < ActiveRecord::Migration[6.1]
   def change
+    enable_extension("citext")
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -32,9 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :username
+      t.citext :username
       t.boolean :private
-      t.integer :tasks_count
+      t.integer :tasks_count, default: 0
 
       t.timestamps null: false
     end
