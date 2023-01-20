@@ -19,5 +19,5 @@
 #  fk_rails_...  (owner_id => users.id)
 #
 class Task < ApplicationRecord
-  belongs_to :
+  belongs_to: :owner, class_name: "User"
 end
