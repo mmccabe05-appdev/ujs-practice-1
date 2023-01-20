@@ -20,4 +20,6 @@
 #
 class Task < ApplicationRecord
   belongs_to :owner, class_name: "User"
+  enum status: { pending: "pending", progress: "progress", completed: "completed" }
+
 end
