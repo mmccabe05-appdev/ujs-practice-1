@@ -2,10 +2,10 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
 <%= link_to 'New Task', new_task_path %>
 
 <div class="row mt-4">
-  <div id="pending_cards" class="col">
+  <div id="pending_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Pending (<%= @tasks.pending.count %>)
+        Pending (<span id="pending_count"><%= @tasks.pending.count %></span>)
       </div>
       <ul class="list-group list-group-flush" id="pending_list">
 
@@ -21,9 +21,9 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
   <div id="progress_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        In progress (<%= @tasks.progress.count %>)
+        In progress (<span id="progress_count"><%= @tasks.progress.count %></span>)
       </div>
-      <ul class="list-group list-group-flush mx-auto" id="pending_list">
+      <ul class="list-group list-group-flush mx-auto" id="progress_list">
 
         <% @tasks.progress.each do |task| %>
 
@@ -36,9 +36,9 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
   <div id="completed_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Completed (<%= @tasks.completed.count %>)
+        Completed (<span id="completed_count"><%= @tasks.completed.count %></span>)
       </div>
-      <ul class="list-group list-group-flush" id="pending_list">
+      <ul class="list-group list-group-flush" id="completed_list">
 
         <% @tasks.completed.each do |task| %>
 

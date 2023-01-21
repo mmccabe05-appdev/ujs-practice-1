@@ -7,12 +7,17 @@ class TasksController < ApplicationController
   end
 
   def move
+    @tasks = current_user.tasks.all
     if @task.pending?
       @task.progress!
     elsif @task.progress?
       @task.completed!
     else
       @task.progress!
+    end
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: "task updated" }
+      format.js
     end
   end 
 
