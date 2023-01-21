@@ -11,7 +11,7 @@ Welcome, <%= current_user.username %> you have <%= Task.count %> pending, active
 
         <% @tasks.pending.each do |task| %>
 
-          <li class="list-group-item" id="<%= task.id %>">(<%= task.status %>) <%= task.body %> (<%= link_to 'Show', task %>, <%= link_to 'Edit', edit_task_path(task) %>, <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>)
+          <li class="list-group-item" id="<%= task.id %>">(<%= task.status %>) <%= task.body %><br> (<%= link_to 'Show', task %>, <%= link_to 'Edit', edit_task_path(task) %>, <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>)
           </li>
         <% end %>
 
