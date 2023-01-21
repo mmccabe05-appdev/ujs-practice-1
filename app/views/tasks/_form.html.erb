@@ -1,4 +1,4 @@
-<%= form_with(model: task) do |form| %>
+<%= form_with(model: task, local: false) do |form| %>
 <li class="list-group-item" id="<%= dom_id task, :edit %>">
   <div class="mb-2">
     <%= form.label :body, class: "hidden" %>

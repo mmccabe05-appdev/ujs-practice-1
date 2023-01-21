@@ -1,0 +1,13 @@
+console.log("connected!")
+$("#<%= dom_id(@task) %>").remove();
+
+var updated_task = $("<%= escape_javascript(render @task) %>");
+
+console.log(updated_task)
+
+$("#edit_<%= dom_id(@task) %>").replaceWith(updated_task);
+
+
+$("#pending_count").replaceWith("<span id='pending_count'><%= @tasks.pending.count %></span>")
+$("#progress_count").replaceWith("<span id='progress_count'><%= @tasks.progress.count %></span>")
+$("#completed_count").replaceWith("<span id='completed_count'><%= @tasks.completed.count %></span>")
