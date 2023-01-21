@@ -10,7 +10,7 @@ p User.all
 user.tasks.destroy_all
 p Task.statuses.values
 Task.statuses.values.each do |status|
-  5.times do
+  rand(10..15).times do
     user.tasks.create(
       body: Faker::Hacker.say_something_smart,
       status: status,
