@@ -1,10 +1,20 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy move ]
 
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
   end
+
+  def move
+    if @task.pending?
+      @task.progress!
+    elsif @task.progress?
+      @task.completed!
+    else
+      @task.progress!
+    end
+  end 
 
   # GET /tasks/1 or /tasks/1.json
   def show
