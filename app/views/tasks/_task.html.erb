@@ -19,7 +19,7 @@
 
     </div>
     <div class="col mx-auto align-text-baseline">
-      <%= link_to edit_task_path(task) do %>
+      <%= link_to edit_task_path(task), remote: true do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
     </div>
