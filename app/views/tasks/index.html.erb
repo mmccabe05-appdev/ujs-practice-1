@@ -1,11 +1,11 @@
-Welcome, <%= current_user.username %> you have <%= Task.count %> pending, active or completed tasks
+Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, active or completed tasks
 <%= link_to 'New Task', new_task_path %>
 
 <div class="row mt-4">
   <div id="pending_cards" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Pending
+        Pending (<%= @tasks.pending.count %>)
       </div>
       <ul class="list-group list-group-flush" id="pending_list">
 
@@ -18,10 +18,10 @@ Welcome, <%= current_user.username %> you have <%= Task.count %> pending, active
     </div>
 
   </div>
-  <div id="pending" class="col">
+  <div id="progress_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        In progress
+        In progress (<%= @tasks.progress.count %>)
       </div>
       <ul class="list-group list-group-flush" id="pending_list">
 
@@ -33,10 +33,10 @@ Welcome, <%= current_user.username %> you have <%= Task.count %> pending, active
       </ul>
     </div>
   </div>
-  <div id="pending" class="col">
+  <div id="completed_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Completed
+        Completed (<%= @tasks.completed.count %>)
       </div>
       <ul class="list-group list-group-flush" id="pending_list">
 
