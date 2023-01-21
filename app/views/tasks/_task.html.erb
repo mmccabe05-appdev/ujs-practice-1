@@ -1,9 +1,32 @@
-<li class="list-group-item" id="<%= task.id %>">(<%= task.status %>) <%= task.body %><br>
-   (
-    <%= link_to 'Move', move_task_path(task), method: :patch, remote: true %> 
-     | 
-   <%= link_to 'Show', task %>
-    | <%= link_to 'Edit', edit_task_path(task) %>
-    | <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-    )
+<li class="list-group-item " id="<%= task.id %>">(<%= task.status %>) <%= task.body %><br>
+  <div class="row mt-2 d-flex">
+    <div class="col mx-auto align-text-baseline">
+      <% if task.status == "pending" %>
+        <%= link_to move_task_path(task), class: "btn btn-link", method: :patch, remote: true do %>
+          <i class='fa-sharp fa-solid fa-forward'></i>
+        <% end %>
+      <% elsif task.status == "progress" %>
+        <%= link_to move_task_path(task), class: "btn btn-link", method: :patch, remote: true  do %>
+          <i class="fa-solid fa-square-check"></i>
+        <% end %>
+      <% else %>
+        <%= link_to move_task_path(task), class: "btn btn-link", method: :patch, remote: true  do %>
+          <i class="fa-sharp fa-solid fa-clock-rotate-left"></i>
+        <% end %>
+
+      <% end %>
+
+    </div>
+    <div class="col mx-auto align-text-baseline">
+    <%= link_to edit_task_path(task) do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <% end %>
+        </div>
+    <div class="col mx-auto align-text-baseline"><%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <i class="fa-solid fa-trash"></i>
+    <% end %></div>
+
+  </div>
 </li>
+
+<!-- <div class="col"><%= link_to 'Show', task %></div> -->

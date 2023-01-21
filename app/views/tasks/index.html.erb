@@ -23,7 +23,7 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
       <div class="card-header">
         In progress (<%= @tasks.progress.count %>)
       </div>
-      <ul class="list-group list-group-flush" id="pending_list">
+      <ul class="list-group list-group-flush mx-auto" id="pending_list">
 
         <% @tasks.progress.each do |task| %>
 
