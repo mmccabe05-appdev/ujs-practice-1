@@ -1,16 +1,17 @@
 Welcome, <%= current_user.username %> you have <%= Task.count %> pending, active or completed tasks
+<%= link_to 'New Task', new_task_path %>
 
-<div class="row">
-  <div id="pending" class="col-4">
+<div class="row mt-4">
+  <div id="pending_cards" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
         Pending
       </div>
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush" id="pending_list">
 
         <% @tasks.pending.each do |task| %>
 
-          <li class="list-group-item">(<%= task.status %>) <%= task.body %> (<%= link_to 'Show', task %>, <%= link_to 'Edit', edit_task_path(task) %>, <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>)
+          <li class="list-group-item" id="<%= task.id %>">(<%= task.status %>) <%= task.body %> (<%= link_to 'Show', task %>, <%= link_to 'Edit', edit_task_path(task) %>, <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>)
           </li>
         <% end %>
 
@@ -18,32 +19,40 @@ Welcome, <%= current_user.username %> you have <%= Task.count %> pending, active
     </div>
 
   </div>
-  <div id="pending" class="col-4">
+  <div id="pending" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
         In progress
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+      <ul class="list-group list-group-flush" id="pending_list">
+
+        <% @tasks.progress.each do |task| %>
+
+          <li class="list-group-item" id="<%= task.id %>">(<%= task.status %>) <%= task.body %> (<%= link_to 'Show', task %>, <%= link_to 'Edit', edit_task_path(task) %>, <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>)
+          </li>
+        <% end %>
+
       </ul>
     </div>
   </div>
-  <div id="pending" class="col-4">
+  <div id="pending" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
         Completed
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+      <ul class="list-group list-group-flush" id="pending_list">
+
+        <% @tasks.completed.each do |task| %>
+
+          <li class="list-group-item" id="<%= task.id %>">(<%= task.status %>) <%= task.body %> (<%= link_to 'Show', task %>, <%= link_to 'Edit', edit_task_path(task) %>, <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>)
+          </li>
+        <% end %>
+
       </ul>
     </div>
   </div>
 </div>
-
+<!-- 
 <table>
   <thead>
     <tr>
@@ -69,7 +78,5 @@ Welcome, <%= current_user.username %> you have <%= Task.count %> pending, active
     <% end %>
   </tbody>
 </table>
-
+-->
 <br>
-
-<%= link_to 'New Task', new_task_path %>
