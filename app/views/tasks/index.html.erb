@@ -1,9 +1,8 @@
-Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, active or completed tasks
 
 
-<div class="row mt-4">
-  <div id="pending_column" class="col">
-    <div class="card" style="width: 18rem;">
+<div class="row">
+  <div id="pending_column" class="col md-4">
+    <div class="card" >
       <div class="card-header">
         Pending <span id="pending_count" class="badge badge-pill badge-secondary"><%= @tasks.pending.count %></span>
       </div>
@@ -20,8 +19,8 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
     </div>
 
   </div>
-  <div id="progress_column" class="col">
-    <div class="card" style="width: 18rem;">
+  <div id="progress_column" class="col md-4">
+    <div class="card" >
       <div class="card-header">
         In progress <span id="progress_count" class="badge badge-pill badge-secondary"><%= @tasks.progress.count %></span>
       </div>
@@ -35,8 +34,8 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
       </ul>
     </div>
   </div>
-  <div id="completed_column" class="col">
-    <div class="card" style="width: 18rem;">
+  <div id="completed_column" class="col md-4">
+    <div class="card" >
       <div class="card-header">
         Completed <span class="badge badge-pill badge-secondary" id="completed_count"><%= @tasks.completed.count %></span></span>
       </div>
