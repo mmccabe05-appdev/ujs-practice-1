@@ -1,5 +1,5 @@
 console.log("connected!")
-$("#<%= dom_id(@task) %>").remove();
+$("#<%= dom_id(@task), :form %>").remove();
 
 var updated_task = $("<%= escape_javascript(render @task) %>");
 

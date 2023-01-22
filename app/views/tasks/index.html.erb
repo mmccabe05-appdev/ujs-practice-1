@@ -1,6 +1,8 @@
 Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, active or completed tasks
 <%= link_to 'New Task', new_task_path %>
 
+<%= render "tasks/form", task: current_user.tasks.build %>
+
 <div class="row mt-4">
   <div id="pending_column" class="col">
     <div class="card" style="width: 18rem;">

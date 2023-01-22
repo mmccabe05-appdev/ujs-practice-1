@@ -1,7 +1,8 @@
+<li class="list-group-item" id="<%= dom_id task, :form %>">
 <%= form_with(model: task, local: false) do |form| %>
-<li class="list-group-item" id="<%= dom_id task, :edit %>">
+
   <div class="mb-2">
-    <%= form.label :body, class: "hidden" %>
+    <%#= form.label :body, class: "hidden" %>
     <%= form.text_field :body, class: "form-control" %>
   </div>
 
@@ -9,5 +10,6 @@
   <div class="d-grid">
     <%= form.submit class: "btn btn-outline-primary" %>
   </div>
+  <% end %>
+
   </li>
-<% end %>
