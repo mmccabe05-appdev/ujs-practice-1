@@ -1,6 +1,5 @@
 Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, active or completed tasks
 
-<%= render "tasks/form", task: current_user.tasks.build %>
 
 <div class="row mt-4">
   <div id="pending_column" class="col">
@@ -8,7 +7,9 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
       <div class="card-header">
         Pending (<span id="pending_count"><%= @tasks.pending.count %></span>)
       </div>
+
       <ul class="list-group list-group-flush" id="pending_list">
+      <%= render "tasks/form", task: current_user.tasks.build %>
 
         <% @tasks.pending.each do |task| %>
 
