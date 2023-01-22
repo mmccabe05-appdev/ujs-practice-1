@@ -1,5 +1,4 @@
 Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, active or completed tasks
-<%= link_to 'New Task', new_task_path %>
 
 <%= render "tasks/form", task: current_user.tasks.build %>
 

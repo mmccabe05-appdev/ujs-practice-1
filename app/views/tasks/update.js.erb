@@ -1,11 +1,11 @@
-console.log("connected!")
-$("#<%= dom_id(@task), :form %>").remove();
+console.log("update js connected!")
+
 
 var updated_task = $("<%= escape_javascript(render @task) %>");
 
 console.log(updated_task)
 
-$("#edit_<%= dom_id(@task) %>").replaceWith(updated_task);
+$("#form_<%= dom_id(@task) %>").replaceWith(updated_task);
 
 
 $("#pending_count").replaceWith("<span id='pending_count'><%= @tasks.pending.count %></span>")

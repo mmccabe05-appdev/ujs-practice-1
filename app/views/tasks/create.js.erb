@@ -1,1 +1,12 @@
-console.log("connected!")
+console.log("create js connected!")
+
+var new_task = $("<%= escape_javascript(render @task) %>");
+
+console.log(new_task)
+
+$("#pending_list").append(new_task);
+
+
+$("#pending_count").replaceWith("<span id='pending_count'><%= @tasks.pending.count %></span>")
+$("#progress_count").replaceWith("<span id='progress_count'><%= @tasks.progress.count %></span>")
+$("#completed_count").replaceWith("<span id='completed_count'><%= @tasks.completed.count %></span>")
