@@ -5,7 +5,7 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
   <div id="pending_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Pending (<span id="pending_count"><%= @tasks.pending.count %></span>)
+        Pending <span id="pending_count" class="badge badge-pill badge-secondary"><%= @tasks.pending.count %></span>
       </div>
 
       <ul class="list-group list-group-flush" id="pending_list">
@@ -23,7 +23,7 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
   <div id="progress_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        In progress (<span id="progress_count"><%= @tasks.progress.count %></span>)
+        In progress <span id="progress_count" class="badge badge-pill badge-secondary"><%= @tasks.progress.count %></span>
       </div>
       <ul class="list-group list-group-flush mx-auto" id="progress_list">
 
@@ -38,7 +38,7 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
   <div id="completed_column" class="col">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Completed (<span id="completed_count"><%= @tasks.completed.count %></span>)
+        Completed <span class="badge badge-pill badge-secondary" id="completed_count"><%= @tasks.completed.count %></span></span>
       </div>
       <ul class="list-group list-group-flush" id="completed_list">
 
