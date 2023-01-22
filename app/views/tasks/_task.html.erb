@@ -1,5 +1,5 @@
-<li class="list-group-item mt-2" id="task_<%= task.id %>">
-<%= task.body %>
+<li class="list-group-item" id="task_<%= task.id %>">
+<span class="mt-2"><%= task.body %></span>
 <div class="row mt-2">
 <div class="mx-auto font-weight-lighter text-right">
 Last updated: <%= time_ago_in_words(task.updated_at) %>

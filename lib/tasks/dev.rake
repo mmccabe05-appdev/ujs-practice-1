@@ -12,7 +12,7 @@ p Task.statuses.values
 Task.statuses.values.each do |status|
   rand(10..15).times do
     user.tasks.create(
-      body: Faker::Hacker.say_something_smart,
+      body: [Faker::Quote.yoda,Faker::Hacker.say_something_smart].sample,
       status: status,
       user: user
     )

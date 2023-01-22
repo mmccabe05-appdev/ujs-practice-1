@@ -11,7 +11,7 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
       <ul class="list-group list-group-flush" id="pending_list">
       <%= render "tasks/form", task: current_user.tasks.build %>
 
-        <% @tasks.pending.each do |task| %>
+        <% @tasks.pending.order(updated_at: :desc).each do |task| %>
 
           <%= render "tasks/task", task: task %>
         <% end %>
@@ -27,7 +27,7 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
       </div>
       <ul class="list-group list-group-flush mx-auto" id="progress_list">
 
-        <% @tasks.progress.each do |task| %>
+        <% @tasks.progress.order(updated_at: :desc).each do |task| %>
 
           <%= render "tasks/task", task: task %>
         <% end %>
@@ -42,7 +42,7 @@ Welcome, <%= current_user.username %> you have <%= @tasks.count %> pending, acti
       </div>
       <ul class="list-group list-group-flush" id="completed_list">
 
-        <% @tasks.completed.each do |task| %>
+        <% @tasks.completed.order(updated_at: :desc).each do |task| %>
 
           <%= render "tasks/task", task: task %>
         <% end %>
