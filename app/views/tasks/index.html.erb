@@ -1,0 +1,80 @@
+
+
+<div class="row">
+  <div id="pending_column" class="col md-4">
+    <div class="card" >
+      <div class="card-header">
+        Pending <span id="pending_count" class="badge badge-pill badge-secondary"><%= @tasks.pending.count %></span>
+      </div>
+
+      <ul class="list-group list-group-flush" id="pending_list">
+      <%= render "tasks/form", task: current_user.tasks.build %>
+
+        <% @tasks.pending.order(updated_at: :desc).each do |task| %>
+
+          <%= render "tasks/task", task: task %>
+        <% end %>
+
+      </ul>
+    </div>
+
+  </div>
+  <div id="progress_column" class="col md-4">
+    <div class="card" >
+      <div class="card-header">
+        In progress <span id="progress_count" class="badge badge-pill badge-secondary"><%= @tasks.progress.count %></span>
+      </div>
+      <ul class="list-group list-group-flush mx-auto" id="progress_list">
+
+        <% @tasks.progress.order(updated_at: :desc).each do |task| %>
+
+          <%= render "tasks/task", task: task %>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+  <div id="completed_column" class="col md-4">
+    <div class="card" >
+      <div class="card-header">
+        Completed <span class="badge badge-pill badge-secondary" id="completed_count"><%= @tasks.completed.count %></span></span>
+      </div>
+      <ul class="list-group list-group-flush" id="completed_list">
+
+        <% @tasks.completed.order(updated_at: :desc).each do |task| %>
+
+          <%= render "tasks/task", task: task %>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Status</th>
+      <th>User</th>
+      <th>user</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.body %></td>
+        <td><%= task.status %></td>
+        <td><%= task.user_id %></td>
+        <td><%= task.user %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+-->
+<br>

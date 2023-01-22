@@ -1,0 +1,13 @@
+console.log("update js connected!")
+
+
+var updated_task = $("<%= escape_javascript(render @task) %>");
+
+console.log(updated_task)
+
+$("#form_<%= dom_id(@task) %>").replaceWith(updated_task);
+
+
+$("#pending_count").replaceWith("<span class='badge badge-pill badge-secondary' id='pending_count'><%= @tasks.pending.count %></span>")
+$("#progress_count").replaceWith("<span class='badge badge-pill badge-secondary' id='progress_count'><%= @tasks.progress.count %></span>")
+$("#completed_count").replaceWith("<span class='badge badge-pill badge-secondary' id='completed_count'><%= @tasks.completed.count %></span>")

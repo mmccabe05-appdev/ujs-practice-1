@@ -1,0 +1,16 @@
+console.log("move js connected!")
+$("#<%= dom_id(@task) %>").remove();
+
+var moved_task = $("<%= escape_javascript(render @task) %>");
+moved_task.hide();
+console.log(moved_task)
+
+moved_task.fadeIn();
+
+$("#<%= @task.status %>_list").before(moved_task);
+
+console.log("<%= @tasks.pending.count %>");
+
+$("#pending_count").replaceWith("<span class='badge badge-pill badge-secondary' id='pending_count'><%= @tasks.pending.count %></span>")
+$("#progress_count").replaceWith("<span class='badge badge-pill badge-secondary' id='progress_count'><%= @tasks.progress.count %></span>")
+$("#completed_count").replaceWith("<span class='badge badge-pill badge-secondary' id='completed_count'><%= @tasks.completed.count %></span>")

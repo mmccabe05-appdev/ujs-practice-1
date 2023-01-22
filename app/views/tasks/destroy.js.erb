@@ -1,0 +1,11 @@
+console.log("destroy js connected!")
+$("#<%= dom_id(@task) %>").slideUp(function() {
+
+  this.remove();
+});
+
+
+
+$("#pending_count").replaceWith("<span class='badge badge-pill badge-secondary' id='pending_count'><%= @tasks.pending.count %></span>")
+$("#progress_count").replaceWith("<span class='badge badge-pill badge-secondary' id='progress_count'><%= @tasks.progress.count %></span>")
+$("#completed_count").replaceWith("<span class='badge badge-pill badge-secondary' id='completed_count'><%= @tasks.completed.count %></span>")

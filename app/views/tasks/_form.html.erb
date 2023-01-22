@@ -1,0 +1,15 @@
+<li class="list-group-item" id="<%= dom_id task, :form %>">
+<%= form_with(model: task, local: false) do |form| %>
+
+  <div class="mb-2">
+    <%#= form.label :body, class: "hidden" %>
+    <%= form.text_field :body, class: "form-control" %>
+  </div>
+
+
+  <div class="mx-auto w-100">
+    <%= form.submit class: "btn btn-outline-primary w-100" %>
+  </div>
+  <% end %>
+
+  </li>
