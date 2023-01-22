@@ -1,16 +1,9 @@
-console.log("create js connected!")
+console.log("destroy js connected!")
+$("#<%= dom_id(@task) %>").slideUp(function() {
 
-var new_task = $("<%= escape_javascript(render @task) %>");
+  this.remove();
+});
 
-new_task.hide();
-
-console.log(new_task)
-
-new_task.fadeIn();
-
-$("#form_task").after(new_task);
-
-$("#form_task #task_body").val("");
 
 
 $("#pending_count").replaceWith("<span id='pending_count'><%= @tasks.pending.count %></span>")

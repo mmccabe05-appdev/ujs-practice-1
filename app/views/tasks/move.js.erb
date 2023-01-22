@@ -1,11 +1,13 @@
-console.log("connected!")
+console.log("move js connected!")
 $("#<%= dom_id(@task) %>").remove();
 
 var moved_task = $("<%= escape_javascript(render @task) %>");
-
+moved_task.hide();
 console.log(moved_task)
 
-$("#<%= @task.status %>_list").prepend(moved_task);
+moved_task.fadeIn();
+
+$("#<%= @task.status %>_list").before(moved_task);
 
 console.log("<%= @tasks.pending.count %>");
 
